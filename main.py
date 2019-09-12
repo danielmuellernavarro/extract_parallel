@@ -58,10 +58,10 @@ def main():
                 print('Folder of the file: \"{0}\" already exists'.format(file))
                 continue
             size = os.path.getsize(file)/1024/1024 # size in Mbytes
-            if size > 500.0:
-                unzip_ProcessPoolExecutor(file, new_dir)
-            else:
-                unzip_ThreadPoolExecutor(file, new_dir)
+            # if size > 500.0:
+            #     unzip_ProcessPoolExecutor(file, new_dir) # ProcessPoolExecutor is not stable
+            # else:
+            unzip_ThreadPoolExecutor(file, new_dir)
     print('\nFinisched')
     time.sleep(2)
 
